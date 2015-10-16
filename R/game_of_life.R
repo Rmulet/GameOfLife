@@ -1,4 +1,4 @@
-game_of_life <- function (size=10,iterations=25,initial=10,history=TRUE,locked=TRUE,time=0.8,test=FALSE) {
+game_of_life <- function (size=10,iterations=25,initial=15,history=TRUE,locked=TRUE,time=0.8,test=FALSE) {
   #Input evaluation#
   if ((sum(size,iterations,initial)) %% 1 != 0) {
     stop("Wrong input values. Please, enter integers as arguments.")
@@ -10,8 +10,8 @@ game_of_life <- function (size=10,iterations=25,initial=10,history=TRUE,locked=T
     stop("Wrong input values. Please introduce an initial value lower than size*size.")
   }
   #Library checking and variable initialization
-  if (require("gplots")== FALSE){cat(sprintf("\n The 'gplots' package is being installed. Please run the function again")); install.packages("gplots")}
-  library("gplots",quietly=TRUE)
+  if (suppressWarnings(require("gplots",quietly=TRUE))== FALSE){cat(sprintf("\nThe 'gplots' package is being installed. Please wait."),"\n"); install.packages("gplots",quiet=TRUE)}
+  suppressPackageStartupMessages(library("gplots",quietly=TRUE))
   his <- NULL # For cell population history
   gen <- 0 # To count the number of generations
 ##FIRST MODULE##
@@ -74,7 +74,7 @@ game_of_life <- function (size=10,iterations=25,initial=10,history=TRUE,locked=T
     }
     #Checking that new generations are not the same (OPTIONAL)#
     if (locked == TRUE && all.equal(vworld,as.vector(world)) == TRUE) {
-      cat(sprintf("The cell population has reached a stalemate at generation %d and the process will be terminated. ",g))
+      cat(sprintf("\nThe cell population has reached a stalemate at generation %d and the process will be terminated. ",g))
       his[[g+1]] <- world
       break
     }
@@ -91,19 +91,19 @@ game_of_life <- function (size=10,iterations=25,initial=10,history=TRUE,locked=T
     Sys.sleep(time)
     #Endgame messages#
     if (sum(world) == 0) {
-      cat (sprintf("Game over: all cells are dead. A total of %d generations have been simulated.",gen))
+      cat (sprintf("\nGame over: all cells are dead. A total of %d generations have been simulated.",gen))
       cat("\n")
       break
     }
     if (g == iterations) {
-      cat (sprintf("The requested number of iterations has been reached. A total of %d generations have been simulated.",gen))
+      cat (sprintf("\nThe requested number of iterations has been reached. A total of %d generations have been simulated.",gen))
       cat("\n")
     }
   }
   ##Plotting the life of the cells (OPTIONAL)##
   if (history == TRUE){
     Sys.sleep(time)
-    cat("The evolution of the cell population is now shown.")
+    cat("\nThe evolution of the cell population is now shown.")
     field <- round(sqrt(gen)+1) # Adding 1 fixes issues with 1 single gen
     par(mfrow=c(field,field),mar=c(2,3,3,2))
     for (u in 1:(gen+1)) {
