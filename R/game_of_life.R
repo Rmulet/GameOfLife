@@ -103,7 +103,7 @@ game_of_life <- function (size=10,iterations=25,initial=15,history=TRUE,locked=T
   ##Plotting the life of the cells (OPTIONAL)##
   if (history == TRUE){
     Sys.sleep(time)
-    cat("\nThe evolution of the cell population is now shown.")
+    cat(sprintf("\nThe evolution of the cell population is now shown."))
     field <- round(sqrt(gen)+1) # Adding 1 fixes issues with 1 single gen
     par(mfrow=c(field,field),mar=c(2,3,3,2))
     for (u in 1:(gen+1)) {
