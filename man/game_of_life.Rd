@@ -2,8 +2,7 @@
 \alias{game_of_life}
 \title{Function to create a simulator of simple cells
 }
-\description{The program is a basic simulator of living cells on a two-dimensional space. Each cell is mapped on a grid of square cells where each of the items interacts with each neighbours. Once the initial distribution of living cells has been defined, the program has to determine the next state of each living cell. For each generatin, game_of_life generats a plot showing the distribution of cells on the grid.
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+\description{The program is a basic simulator of living cells on a two-dimensional space. Each cell is mapped on a grid of square cells where each of the items interacts with each neighbours. Once the initial distribution of living cells has been defined, the program has to determine the next state of each living cell. For each generation, game_of_life generats a plot showing the distribution of cells on the grid.
 }
 \usage{
 game_of_life(size=10,iterations=25,initial=10,history=TRUE,locked=TRUE,time=0.8,test=FALSE)
@@ -25,10 +24,7 @@ game_of_life(size=10,iterations=25,initial=10,history=TRUE,locked=TRUE,time=0.8,
   \item{test}{Activates testing mode. The function will show the matrices (world and nei) created in each generation. By default, it is set to FALSE.
   }
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
-\value{The function returns up to three types of output.
+\value{The function returns up to three types of output: 1) A plot showing the distribution of cells in each generation; 2) Optionally, a plot displaying the evolution of the cell population over each generation; 3) Optionally, the raw matrices corresponding to the cell population and their number of neighbours
 %%  ~Describe the value returned
 %%  If it is a LIST, use
 %%  \item{comp1 }{Description of 'comp1'}
