@@ -1,0 +1,10 @@
+Package: GameOfLife
+Type: Package
+Title: Function that simulates living cells on a 2D gride
+Version: 0.1
+Date: 2015-10-16
+Author: Roger
+Maintainer: Who to complain to <yourfault@somewhere.net>
+Description: More about what it does (maybe more than one line)
+License: What license is it under?
+LazyData: TRUE
