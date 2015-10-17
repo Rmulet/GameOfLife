@@ -74,7 +74,7 @@ game_of_life <- function (size=10,iterations=25,initial=15,history=TRUE,locked=T
     }
     #Checking that new generations are not the same (OPTIONAL)#
     if (locked == TRUE && all.equal(vworld,as.vector(world)) == TRUE) {
-      cat(sprintf("\nThe cell population has reached a stalemate at generation %d and the process will be terminated. ",g))
+      cat(sprintf("\nThe cell population has reached a stalemate at generation %d and the process will be terminated. %d cells remain alive. ",g,sum(world)), "\n")
       his[[g+1]] <- world
       break
     }
@@ -96,7 +96,7 @@ game_of_life <- function (size=10,iterations=25,initial=15,history=TRUE,locked=T
       break
     }
     if (g == iterations) {
-      cat (sprintf("\nThe requested number of iterations has been reached. A total of %d generations have been simulated.",gen))
+      cat (sprintf("\nThe requested number of iterations has been reached. A total of %d generations have been simulated and %d cells remain alive.",gen,sum(world)))
       cat("\n")
     }
   }
