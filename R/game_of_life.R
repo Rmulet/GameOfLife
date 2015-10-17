@@ -108,7 +108,7 @@ game_of_life <- function (size=10,iterations=25,initial=15,history=TRUE,locked=T
     par(mfrow=c(field,field),mar=c(2,3,3,2))
     for (u in 1:(gen+1)) {
       rev <- t(his[[u]])[,nrow(his[[u]]):1] # Reverse to plot correctly
-      image(rev,col=c("white","steelblue"),main=sprintf("Gen %d",u-1))
+      image(rev,col=c("white","steelblue"),main=sprintf("Gen %d",u-1),xaxt="n",yaxt="n")
     }
   }
 }
