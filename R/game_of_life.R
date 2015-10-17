@@ -10,7 +10,7 @@ game_of_life <- function (size=10,iterations=25,initial=15,history=TRUE,locked=T
     stop("Wrong input values. Please introduce an initial value lower than size*size.")
   }
   #Library checking and variable initialization
-  if (suppressWarnings(require("gplots",quietly=TRUE))== FALSE){cat(sprintf("\nThe 'gplots' package is being installed. Please wait."),"\n"); install.packages("gplots",quiet=TRUE)}
+  if (suppressMessages(suppressWarnings(require("gplots",quietly=TRUE)))== FALSE){cat(sprintf("\nThe 'gplots' package is being installed. Please wait."),"\n"); install.packages("gplots",quiet=TRUE)}
   suppressPackageStartupMessages(library("gplots",quietly=TRUE))
   his <- NULL # For cell population history
   gen <- 0 # To count the number of generations
